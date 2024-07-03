@@ -26,6 +26,13 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef enum {
+	LEVEL_MIN = 0U,
+	LEVEL_1 = 16000U,
+	LEVEL_2 = 32000U,
+	LEVEL_3 = 48000U,
+	LEVEL_MAX = 65000U
+}LEVELS;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -52,7 +59,9 @@ uint8_t AdcConvertCpltFlag = 0;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC1_Init(void);
+
 /* USER CODE BEGIN PFP */
+static void GPIO_WriteBit(unsigned int * gpio_x, unsigned  short int GPIO_Pin, char BitVal);
 
 /* USER CODE END PFP */
 
@@ -227,7 +236,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_1;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = CONVERSION_TIME;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
