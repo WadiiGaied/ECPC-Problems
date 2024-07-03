@@ -42,7 +42,7 @@ typedef enum {
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define CONVERSION_TIME 			ADC_SAMPLETIME_3CYCLES // Choose Conversion Time
+#define CONVERSION_TIME 			ADC_SAMPLETIME_3CYCLES  // Choose Conversion Time
 #define ODR                         0x05
 /* USER CODE END PM */
 
